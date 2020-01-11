@@ -61,6 +61,7 @@ class _SignUpPageState extends State<SignUpPage> {
                         )
                       .then((signedInUser) {
                         print('user created!');
+//                        print(signedInUser);
                     UserManagement().storeNewUser(context, signedInUser);
                   }).catchError((e) {
                     print(e);

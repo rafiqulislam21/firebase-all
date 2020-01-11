@@ -1,3 +1,4 @@
+import 'package:firebase_all/loginpage.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
@@ -35,7 +36,10 @@ class _HomePageState extends State<HomePage> {
                 onPressed: () {
                   FirebaseAuth.instance
                       .signOut()
-                      .then((value) {})
+                      .then((value) {
+                        Navigator.pushReplacement(context,
+                        MaterialPageRoute(builder: (context) => LoginPage()));
+                  })
                       .catchError((e) {
                     print(e);
                   });

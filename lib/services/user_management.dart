@@ -4,10 +4,12 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class UserManagement {
-  storeNewUser(user, context) {
+  storeNewUser(context, result) {
+    print(result);
+    print(result.user.email);
     Firestore.instance
         .collection('/users')
-        .add({'email': user.email, 'uid': user.uid}).then((value) {
+        .add({'email': result.user.email, 'uid': result.user.uid}).then((value) {
       //prevent login page back Button
       Navigator.of(context).pop();
       Navigator.pushReplacement(
